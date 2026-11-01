@@ -1,0 +1,281 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+:root {
+  color-scheme: light;
+  --app-background: #F7F8F2;
+  --app-foreground: #202820;
+  --color-warm-ivory: #F7F8F2;
+  --color-forest-green: #174D35;
+  --color-sage-green: #A8C5A0;
+  --color-fresh-accent: #78A85A;
+  --color-pure-white: #FFFFFF;
+  --color-charcoal-text: #202820;
+  --color-soft-border: #E5E9E1;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --app-background: #111914;
+  --app-foreground: #E5EDE6;
+}
+
+@layer base {
+  body {
+    background-color: var(--app-background);
+    color: var(--app-foreground);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro", system-ui, "Plus Jakarta Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.011em;
+  }
+}
+
+.app-shell {
+  background-color: var(--app-background);
+  color: var(--app-foreground);
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+/* Accessible iOS-style Focus Ring */
+:focus-visible {
+  outline: 2px solid #286228;
+  outline-offset: 2px;
+}
+
+/* Custom scrollbars - restrained & subtle */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F4F3ED;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D5D2C7;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B8B4A6;
+}
+
+/* iOS Card & Glass Helpers */
+.ios-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E9E1;
+  border-radius: 1.5rem;
+  box-shadow: 0 1px 3px rgba(23, 77, 53, 0.03), 0 4px 16px -2px rgba(23, 77, 53, 0.04);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ios-card:hover {
+  border-color: #A8C5A0;
+  box-shadow: 0 6px 24px -4px rgba(23, 77, 53, 0.08);
+}
+
+.ios-glass {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.ios-glass-dark {
+  background: rgba(22, 51, 36, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Dark theme overrides for the shared light surfaces used throughout the UI. */
+.theme-dark {
+  color-scheme: dark;
+}
+
+.theme-dark [class~="bg-white"],
+.theme-dark [class~="bg-white/85"],
+.theme-dark [class~="bg-white/95"],
+.theme-dark [class~="bg-white/90"] {
+  background-color: #1B2820;
+}
+
+.theme-dark [class~="bg-stone-50"],
+.theme-dark [class~="bg-stone-100"],
+.theme-dark [class~="bg-stone-100/70"],
+.theme-dark [class~="bg-slate-50"],
+.theme-dark [class~="bg-slate-100"] {
+  background-color: #202B24;
+}
+
+.theme-dark [class~="bg-emerald-50"],
+.theme-dark [class~="bg-emerald-100"],
+.theme-dark [class~="bg-agri-50"],
+.theme-dark [class~="bg-agri-100"],
+.theme-dark [class~="bg-sage-50"],
+.theme-dark [class~="bg-sage-100"] {
+  background-color: #22352A;
+}
+
+.theme-dark [class~="bg-amber-50"] {
+  background-color: #332B1C;
+}
+
+.theme-dark [class~="bg-red-50"] {
+  background-color: #351F1F;
+}
+
+.theme-dark [class~="bg-purple-50"] {
+  background-color: #2C2340;
+}
+
+.theme-dark [class~="bg-blue-50"] {
+  background-color: #1D2B3C;
+}
+
+.theme-dark .ios-card,
+.theme-dark .ios-glass {
+  background-color: #1B2820;
+  border-color: #34463A;
+  color: #E5EDE6;
+}
+
+.theme-dark [class*="text-stone-"],
+.theme-dark [class*="text-slate-"],
+.theme-dark [class*="text-charcoal-"],
+.theme-dark [class*="text-forest-"] {
+  color: #C4D0C6;
+}
+
+.theme-dark [class~="text-emerald-700"],
+.theme-dark [class~="text-emerald-800"],
+.theme-dark [class~="text-green-700"],
+.theme-dark [class~="text-green-800"] {
+  color: #9BD8A8;
+}
+
+.theme-dark [class~="text-amber-700"],
+.theme-dark [class~="text-amber-800"] {
+  color: #EAC475;
+}
+
+.theme-dark [class~="text-red-600"],
+.theme-dark [class~="text-red-800"] {
+  color: #F29B9B;
+}
+
+.theme-dark [class*="text-[#202820]"] {
+  color: #E5EDE6;
+}
+
+.theme-dark [class*="border-stone-100"],
+.theme-dark [class*="border-stone-200"],
+.theme-dark [class*="border-slate-200"],
+.theme-dark [class*="border-agri-100"],
+.theme-dark [class*="border-agri-200"],
+.theme-dark [class*="border-emerald-200"] {
+  border-color: #34463A;
+}
+
+.theme-dark input,
+.theme-dark select,
+.theme-dark textarea {
+  color: #E5EDE6;
+}
+
+.theme-dark input::placeholder,
+.theme-dark textarea::placeholder {
+  color: #95A599;
+}
+
+.theme-dark ::-webkit-scrollbar-track {
+  background: #18231C;
+}
+
+.theme-dark ::-webkit-scrollbar-thumb {
+  background: #3E5144;
+}
+
+.theme-dark [class*="hover:bg-stone-100"]:hover,
+.theme-dark [class*="hover:bg-slate-100"]:hover {
+  background-color: #28382E;
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 3D Animations & Agro Doctor Special Effects */
+@keyframes float3d {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.01);
+  }
+}
+
+@keyframes holographicScan {
+  0% {
+    top: -20%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    top: 120%;
+    opacity: 0;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.35), 0 0 30px rgba(34, 197, 94, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(34, 197, 94, 0.6), 0 0 50px rgba(34, 197, 94, 0.3);
+  }
+}
+
+.animate-float-3d {
+  animation: float3d 5s ease-in-out infinite;
+}
+
+.animate-float-gentle {
+  animation: floatGentle 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.animate-scan {
+  animation: holographicScan 3s linear infinite;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+

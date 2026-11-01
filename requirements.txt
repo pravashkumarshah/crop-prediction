@@ -1,0 +1,19 @@
+# AgriSmart AI — Python Backend Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core ML / Data Science
+tensorflow>=2.15.0
+scikit-learn>=1.3.0
+numpy>=1.24.0
+pandas>=2.0.0
+joblib>=1.3.0
+
+# Explainable AI
+shap>=0.43.0
+
+# Web Framework & API
+flask>=3.0.0
+flask-cors>=4.0.0
+
+# Utilities
+python-dotenv>=1.0.0
